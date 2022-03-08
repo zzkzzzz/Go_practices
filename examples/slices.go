@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+
+// reference: https://go.dev/blog/slices-intro
 func main() {
 
     s := make([]string, 3)
