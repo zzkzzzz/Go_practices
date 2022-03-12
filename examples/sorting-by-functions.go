@@ -10,6 +10,7 @@ import (
 // and then calling sort.Sort on a collection of that custom type, we can sort Go slices by arbitrary functions.
 type byLength []string
 
+// We implement sort.Interface - Len, Less, and Swap - on our type so we can use the sort package’s generic Sort function.
 func (s byLength) Len() int {
 	return len(s)
 }

@@ -27,7 +27,10 @@ func main() {
 	writes := make(chan writeOp)
 
 	go func() {
+		// private to the stateful goroutine.
 		var state = make(map[int]int)
+		// This goroutine repeatedly selects on the reads and writes channels, responding to requests as they arrive.
+		// A response is executed by first performing the requested operation and then sending a value on the response channel resp to indicate success
 		for {
 			select {
 			case read := <-reads:
